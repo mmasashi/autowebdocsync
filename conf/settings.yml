@@ -1,0 +1,45 @@
+<%
+@default_doc_dir_path = File.join(File.expand_path('~'), 'Documents', 'aws-docs')
+%>
+
+default:
+  log_level: 'debug'
+  sync_dir_path: "<%= @default_doc_dir_path %>"
+  script_name: 'run_web_doc_sync.rb'
+  enabled: true
+  launchctl_parameters:
+    ExitTimeout: 300
+    RunAtLoad: true
+    StartInterval: 7200
+
+scripts:
+- name: 'aws-docs-redshift'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/redshift/latest'
+  web_doc_file_names:
+  - 'redshift-gsg.pdf'
+  - 'redshift-mgmt.pdf'
+  - 'redshift-dg.pdf'
+  - 'redshift-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'redshift') %>"
+  launchctl_parameters:
+    ExitTimeout: 600
+
+- name: 'aws-docs-opsworks'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/opsworks/latest'
+  web_doc_file_names:
+  - 'opsworks-ug.pdf'
+  - 'opsworks-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'opsworks') %>"
+
+- name: 'aws-docs-datapipeline'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/datapipeline/latest'
+  web_doc_file_names:
+  - 'datapipeline-dg.pdf'
+  - 'datapipeline-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'datapipeline') %>"
+
+- name: 'aws-docs-others'
+  web_doc_file_names:
+  - 'http://awsdocs.s3.amazonaws.com/glacier/latest/glacier-dg.pdf'
+  - 'http://awsdocs.s3.amazonaws.com/kinesis/latest/kinesis-dg.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'others') %>"
