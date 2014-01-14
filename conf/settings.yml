@@ -1,5 +1,5 @@
 <%
-@default_doc_dir_path = File.join(File.expand_path('~'), 'Documents', 'aws-docs')
+@default_doc_dir_path = File.join(File.expand_path('~'), 'Desktop', 'aws-docs')
 %>
 
 default:
@@ -13,6 +13,91 @@ default:
     StartInterval: 7200
 
 scripts:
+- name: 'aws-docs-autoscaling'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/AutoScaling/latest'
+  web_doc_file_names:
+  - 'as-gsg.pdf'
+  - 'as-dg.pdf'
+  - 'as-api.pdf'
+  - 'as-qrc.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'autoscaling') %>"
+
+- name: 'aws-docs-awscloudtrail'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/awscloudtrail/latest'
+  web_doc_file_names:
+  - 'awscloudtrail-ug.pdf'
+  - 'awscloudtrail-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'awscloudtrail') %>"
+
+- name: 'aws-docs-cloudfront'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/CF/latest'
+  web_doc_file_names:
+  - 'cf_dg.pdf'
+  - 'cf_api.pdf'
+  - 'cf-qrc.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'cloudfront') %>"
+
+- name: 'aws-docs-datapipeline'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/datapipeline/latest'
+  web_doc_file_names:
+  - 'datapipeline-dg.pdf'
+  - 'datapipeline-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'datapipeline') %>"
+
+- name: 'aws-docs-dynamodb'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/dynamodb/latest'
+  web_doc_file_names:
+  - 'dynamodb-dg.pdf'
+  - 'dynamodb-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'dynamodb') %>"
+
+- name: 'aws-docs-ec2'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/EC2/latest'
+  web_doc_file_names:
+  - 'ec2-ug.pdf'
+  - 'ec2-qrc.pdf'
+  - 'ec2-clt.pdf'
+  - 'ec2-api.pdf'
+  - 'ec2-wg.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'ec2') %>"
+
+- name: 'aws-docs-elasticcache'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/ElastiCache/latest'
+  web_doc_file_names:
+  - 'elasticache-ug.pdf'
+  - 'elasticache-api.pdf'
+  - 'elasticache-cli.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'elasticcache') %>"
+
+- name: 'aws-docs-glacier'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/glacier/latest'
+  web_doc_file_names:
+  - 'glacier-dg.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'glacier') %>"
+
+- name: 'aws-docs-kinesis'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/kinesis/latest'
+  web_doc_file_names:
+  - 'kinesis-dg.pdf'
+  - 'kinesis-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'kinesis') %>"
+
+- name: 'aws-docs-opsworks'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/opsworks/latest'
+  web_doc_file_names:
+  - 'opsworks-ug.pdf'
+  - 'opsworks-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'opsworks') %>"
+
+- name: 'aws-docs-rds'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/RDS/latest'
+  web_doc_file_names:
+  - 'rds-ug.pdf'
+  - 'rds-cli.pdf'
+  - 'rds-api.pdf'
+  - 'rds-qrc.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'rds') %>"
+
 - name: 'aws-docs-redshift'
   web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/redshift/latest'
   web_doc_file_names:
@@ -24,22 +109,39 @@ scripts:
   launchctl_parameters:
     ExitTimeout: 600
 
-- name: 'aws-docs-opsworks'
-  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/opsworks/latest'
+- name: 'aws-docs-route53'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/Route53/latest'
   web_doc_file_names:
-  - 'opsworks-ug.pdf'
-  - 'opsworks-api.pdf'
-  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'opsworks') %>"
+  - 'route53-dg.pdf'
+  - 'route53-api.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'route53') %>"
 
-- name: 'aws-docs-datapipeline'
-  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/datapipeline/latest'
+- name: 'aws-docs-sdk-ruby'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/sdk-ruby/latest'
   web_doc_file_names:
-  - 'datapipeline-dg.pdf'
-  - 'datapipeline-api.pdf'
-  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'datapipeline') %>"
+  - 'aws-sdk-ruby-dg.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'sdk-ruby') %>"
 
-- name: 'aws-docs-others'
+- name: 'aws-docs-s3'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/S3/latest'
   web_doc_file_names:
-  - 'http://awsdocs.s3.amazonaws.com/glacier/latest/glacier-dg.pdf'
-  - 'http://awsdocs.s3.amazonaws.com/kinesis/latest/kinesis-dg.pdf'
-  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'others') %>"
+  - 's3-gsg.pdf'
+  - 's3-dg.pdf'
+  - 's3-api.pdf'
+  - 's3-ug.pdf'
+  - 's3-qrc.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 's3') %>"
+
+- name: 'aws-docs-simpledb'
+  web_doc_base_url: 'http://awsdocs.s3.amazonaws.com/SDB/latest'
+  web_doc_file_names:
+  - 'sdb-gsg.pdf'
+  - 'sdb-dg.pdf'
+  - 'sdb-qrc.pdf'
+  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'simpledb') %>"
+
+#- name: 'aws-docs-others'
+#  web_doc_file_names:
+#  - 'http://awsdocs.s3.amazonaws.com/glacier/latest/glacier-dg.pdf'
+#  - 'http://awsdocs.s3.amazonaws.com/kinesis/latest/kinesis-dg.pdf'
+#  sync_dir_path: "<%= File.join(@default_doc_dir_path, 'others') %>"
